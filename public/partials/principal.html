@@ -1,0 +1,79 @@
+<div class="jumbotron">
+      <div class="text-center">
+        <h1>Bem vindo</h1>
+        <h3>Sistema de estacionamento</h3>
+        <relogio></relogio>
+      </div>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">
+	{{mensagem}}
+</p>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <a href="/#/clientes/new" class="btn btn-primary" type="button">
+                  Novo cliente
+                </a>
+              </span>
+              <input class="form-control cpf-mask" placeholder="Filtrar cliente" ng-model="filtro">
+            </div>
+          </form>
+        </div> 
+      </div>
+
+    <div class="row"> 
+      
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title text-center">Clientes</h3>
+        </div>
+
+        <div class="panel-body">
+            <table class="table">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>CPF</th>
+                <th>Data de nascimento</th>
+                <th>Telefone</th>
+                <th>Horário</th> 
+              </tr>
+            </thead>
+           <tbody ng-repeat="cliente in clientes | filter: filtro">
+              <tr scope="row">
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.sexo}}</td>
+                <td>{{cliente.cpf}}</td>
+                <td>{{cliente.ddn}}</td>
+                <td>{{cliente.telefone}}</td>
+                <td>{{cliente.horario}}</td>
+                <td>
+                  <a href="/#/clientes/edit/{{cliente._id}}" class="btn btn-primary">Editar</a>
+                  <button ng-click="remover(cliente)" type="button" class="btn btn-danger">Deletar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="col-md-4">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">Preços</h3>
+    </div>
+    
+    <div class="panel-body">
+    </div>
+  </div>
+</div>
+
